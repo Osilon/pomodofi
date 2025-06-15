@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*Fonts*/
+@font-face{
+    font-family: 'Pixel';
+    src: url(./assets/Jersey20-Regular.ttf) format('truetype');
+}
