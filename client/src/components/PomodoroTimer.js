@@ -36,7 +36,7 @@ function PomodoroTimer() {
   }, [seconds, minutes, displayPause, isRunning]);
 
   return (
-    <div className="text-white mt-8 ml-5 font-medium text-shadow-lg border rounded-full bg-black bg-opacity-80" 
+    <div className="text-white mt-8 ml-5 font-medium text-shadow-lg border rounded-full bg-black bg-opacity-80"
     style={{ 
       fontFamily: 'Pixel', 
       width: '300px', 
