@@ -5,7 +5,7 @@ function PomodoroTimer() {
   const [minutes, setMinutes] = useState(25);
   const [seconds, setSeconds] = useState(0);
   const [displayPause, setDisplayPause] = useState(false);
-  const [ isRunning, setIsRunning ] = useState(false);
+  const [isRunning, setIsRunning] = useState(false);
   const timerMinutes = minutes < 10 ? `0${minutes}` : minutes;
   const timerSeconds = seconds < 10 ? `0${seconds}` : seconds;
 
@@ -36,16 +36,35 @@ function PomodoroTimer() {
   }, [seconds, minutes, displayPause, isRunning]);
 
   return (
-    <div className="text-white mt-8 ml-5 font-medium text-shadow-lg" style={{ fontFamily: 'Pixel' }}>
-      <div className="text-3xl">
-        {displayPause ? <div>Take a break!</div> : <div>Do your best!</div>}
+    <div className="text-white mt-8 ml-5 font-medium text-shadow-lg border rounded-full bg-black bg-opacity-80" 
+    style={{ 
+      fontFamily: 'Pixel', 
+      width: '300px', 
+      height: '300px', 
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      }}>
+      <div className="text-4xl">
+        {displayPause ? <div>take a break!</div> : <div>do your best!</div>}
       </div>
-      <div className="text-3xl font-medium text-shadow-lg">
+      <div className="text-4xl font-medium text-shadow-lg">
         {timerMinutes}:{timerSeconds}
       </div>
-      <button className="text-3xl font-medium text-shadow-lg" onClick={() => setIsRunning(!isRunning)}>
-        {isRunning ? "Pause" : "Start"}
-      </button>
+      <div style={{ display:'flex' }}>
+        <button className="text-3xl font-medium text-shadow-lg" onClick={() => setIsRunning(!isRunning)}>
+          {isRunning ? "pause" : "start"}
+        </button>
+        <div>&nbsp;&nbsp;</div>
+        <button className="text-3xl font-medium text-shadow-lg" 
+        onClick={() =>{
+          setMinutes(25);
+          setSeconds(0);
+          setDisplayPause(false);
+          setIsRunning(false);
+        }}>reset</button>
+        </div>
     </div>
   )
 }
