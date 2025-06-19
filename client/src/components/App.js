@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import lofi1 from '../assets/lofi1.gif';
 import lofi2 from '../assets/lofi2.gif';
 import lofi3 from '../assets/lofi3.gif';
@@ -40,30 +40,19 @@ function App() {
   };
 
   return (
-    <div style={{
-      backgroundImage: `url(${bgList[bgIndex]})`,
-      backgroundSize: 'cover',
-      height: '100vh',
-      overflow: 'hidden',
-    }}>
-      <div className="text-5xl mt-10 text-shadow-lg text-white"
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        fontFamily: 'Pixel',
-        alignItems: 'center'
-        }}>
-        <h1 style={{marginLeft: '500px'}}>pomodofi</h1>
-        <a href="https://github.com/Osilon" target="_blank" rel="noopener noreferrer" className="ml-auto">
-          <button className="flex items-center justify-center">
-            <img src={githubIcon} width={40} alt='GitHub Button'></img>
+    <div className="flex flex-col min-h-screen bg-cover" style={{backgroundImage: `url(${bgList[bgIndex]})`}}>
+      <div className="flex flex-wrap items-center justify-center sm:justify-between px-6 sm:px-12 mt-10 text-white text-shadow-lg" style={{ fontFamily: 'Pixel' }}>
+        <div className="ml-[20%] sm:ml-[25%] md:ml-[30%] text-4xl sm:text-5xl">pomodofi</div>
+        <div className="flex items-center gap-4 ml-auto mr-[20%] sm:mr-[25%] md:mr-[30%]">
+          <a href="https://github.com/Osilon" target="_blank" rel="noopener noreferrer">
+            <img src={githubIcon} width={40} alt="GitHub" />
+          </a>
+          <button onClick={toggleFullscreen}>
+            <img src={fullscreenIcon} width={57} alt="Fullscreen" />
           </button>
-        </a>
-        <button style = {{marginRight: '500px'}} onClick={toggleFullscreen} className="ml-3">
-          <img src={fullscreenIcon} width={57} alt='Fullscreen Button'></img>
-        </button>
+        </div>
       </div>
-      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: 'calc(50vh + 100px)'}}>
+      <div className="flex-grow flex items-center justify-center">
         <PomodoroTimer />
       </div>
       <Audio />
@@ -71,7 +60,7 @@ function App() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',}}>
-        <h2 style={{fontFamily: 'Pixel'}} className="text-2xl mt-5 text-white text-shadow-lg">background {bgIndex + 1} &nbsp;[change using arrow keys]</h2>
+        <h2 style={{fontFamily: 'Pixel'}} className="text-2xl mb-8 text-white text-shadow-lg">background {bgIndex + 1} &nbsp;[change using arrow keys]</h2>
       </div>
     </div>
   );
